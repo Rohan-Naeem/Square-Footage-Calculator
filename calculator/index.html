@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Square Footage Calculator - Calculate Area in Square Feet</title>
+
+<meta
+    name="description"
+    content="Calculate square footage for rooms and spaces using length and width. Convert area between square feet, square meters, square yards, and square inches."
+>
+
+<meta
+    name="robots"
+    content="index, follow"
+>
+
+<!-- Replace YOURDOMAIN.com with your final domain before deployment -->
+<link
+    rel="canonical"
+    href="https://YOURDOMAIN.com/"
+>
+
+
+
+<link
+    rel="apple-touch-icon"
+    href="assets/favicon.png"
+>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+<link rel="icon" type="image/png" href="favicon.png">
+
+
+<!-- Open Graph -->
+<meta
+    property="og:title"
+    content="Square Footage Calculator"
+>
+
+<meta
+    property="og:description"
+    content="Calculate square footage and convert area between common measurement units."
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:url"
+    content="https://YOURDOMAIN.com/"
+>
+
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="site-header">
+
+    <div class="container header-container">
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Square Footage Calculator Home"
+        >
+
+           <img
+    src="logo.png"
+    alt="Square Footage Calculator Logo"
+    class="logo-image"
+>
+
+           
+
+        </a>
+
+
+        <button
+            type="button"
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mainNavigation"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <nav
+            class="main-navigation"
+            id="mainNavigation"
+            aria-label="Main navigation"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link active"
+                aria-current="page"
+            >
+                Calculator
+            </a>
+
+            <a
+                href="guide.html"
+                class="nav-link"
+            >
+                Guide
+            </a>
+
+            <a
+                href="conversion.html"
+                class="nav-link"
+            >
+                Conversion
+            </a>
+
+            <a
+                href="faq.html"
+                class="nav-link"
+            >
+                FAQ
+            </a>
+
+            <a
+                href="about.html"
+                class="nav-link"
+            >
+                About
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main>
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero-section">
+
+        <div class="container hero-container">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    FREE AREA CALCULATOR
+                </span>
+
+                <h1>
+                    Square Footage Calculator
+                </h1>
+
+                <p class="hero-description">
+                    Calculate the area of rooms and spaces quickly
+                    using different shapes and measurement units.
+                    Get accurate square feet, square meters,
+                    square yards, and square inches conversions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CALCULATOR
+    ================================================== -->
+
+    <section
+        class="calculator-section"
+        id="calculator"
+    >
+
+        <div class="container">
+
+            <div class="calculator-card">
+
+                <div class="calculator-header">
+
+                    <span class="section-label">
+                        AREA CALCULATOR
+                    </span>
+
+                    <h2>
+                        Calculate Your Area
+                    </h2>
+
+                    <p>
+                        Select a shape, choose your unit, and enter
+                        the measurements below.
+                    </p>
+
+                </div>
+
+
+                <!-- =====================================
+                     CALCULATOR FORM
+                ====================================== -->
+
+                <form
+                    class="calculator-form"
+                    id="squareFootageForm"
+                    novalidate
+                >
+
+
+                    <!-- Shape -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="shapeSelect"
+                            class="form-label"
+                        >
+                            Shape
+                        </label>
+
+                        <select
+                            id="shapeSelect"
+                            name="shape"
+                            class="form-control"
+                        >
+
+                            <option value="rectangle">
+                                Rectangle
+                            </option>
+
+                            <option value="square">
+                                Square
+                            </option>
+
+                            <option value="triangle">
+                                Triangle
+                            </option>
+
+                            <option value="circle">
+                                Circle
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Unit -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="measurementUnit"
+                            class="form-label"
+                        >
+                            Measurement Unit
+                        </label>
+
+                        <select
+                            id="measurementUnit"
+                            name="measurementUnit"
+                            class="form-control"
+                        >
+
+                            <option value="feet">
+                                Feet (ft)
+                            </option>
+
+                            <option value="meters">
+                                Meters (m)
+                            </option>
+
+                            <option value="inches">
+                                Inches (in)
+                            </option>
+
+                            <option value="yards">
+                                Yards (yd)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- =================================
+                         RECTANGLE / TRIANGLE INPUTS
+                    ================================== -->
+
+                    <div
+                        class="measurement-grid"
+                        id="rectangleInputs"
+                    >
+
+                        <!-- Length -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="lengthInput"
+                                class="form-label"
+                            >
+                                Length
+                            </label>
+
+                            <div class="input-with-unit">
+
+                                <input
+                                    type="number"
+                                    id="lengthInput"
+                                    name="length"
+                                    class="form-control"
+                                    placeholder="Enter length"
+                                    min="0"
+                                    step="any"
+                                    inputmode="decimal"
+                                    autocomplete="off"
+                                >
+
+                                <span
+                                    class="input-unit"
+                                    id="lengthUnit"
+                                >
+                                    ft
+                                </span>
+
+                            </div>
+
+                            <small
+                                class="input-error"
+                                id="lengthError"
+                                role="alert"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Width -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="widthInput"
+                                class="form-label"
+                            >
+                                Width
+                            </label>
+
+                            <div class="input-with-unit">
+
+                                <input
+                                    type="number"
+                                    id="widthInput"
+                                    name="width"
+                                    class="form-control"
+                                    placeholder="Enter width"
+                                    min="0"
+                                    step="any"
+                                    inputmode="decimal"
+                                    autocomplete="off"
+                                >
+
+                                <span
+                                    class="input-unit"
+                                    id="widthUnit"
+                                >
+                                    ft
+                                </span>
+
+                            </div>
+
+                            <small
+                                class="input-error"
+                                id="widthError"
+                                role="alert"
+                            ></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         SQUARE INPUT
+                    ================================== -->
+
+                    <div
+                        class="form-group"
+                        id="squareInputs"
+                        hidden
+                    >
+
+                        <label
+                            for="sideInput"
+                            class="form-label"
+                        >
+                            Side Length
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="sideInput"
+                                name="side"
+                                class="form-control"
+                                placeholder="Enter side length"
+                                min="0"
+                                step="any"
+                                inputmode="decimal"
+                                autocomplete="off"
+                            >
+
+                            <span
+                                class="input-unit"
+                                id="sideUnit"
+                            >
+                                ft
+                            </span>
+
+                        </div>
+
+                        <small
+                            class="input-error"
+                            id="sideError"
+                            role="alert"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- =================================
+                         CIRCLE INPUT
+                    ================================== -->
+
+                    <div
+                        class="form-group"
+                        id="circleInputs"
+                        hidden
+                    >
+
+                        <label
+                            for="radiusInput"
+                            class="form-label"
+                        >
+                            Radius
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="radiusInput"
+                                name="radius"
+                                class="form-control"
+                                placeholder="Enter radius"
+                                min="0"
+                                step="any"
+                                inputmode="decimal"
+                                autocomplete="off"
+                            >
+
+                            <span
+                                class="input-unit"
+                                id="radiusUnit"
+                            >
+                                ft
+                            </span>
+
+                        </div>
+
+                        <small
+                            class="input-error"
+                            id="radiusError"
+                            role="alert"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- =================================
+                         AREA NAME
+                    ================================== -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="areaNameInput"
+                            class="form-label"
+                        >
+                            Area Name
+                            <span>(Optional)</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="areaNameInput"
+                            name="areaName"
+                            class="form-control"
+                            placeholder="e.g. Living Room"
+                            maxlength="60"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- =================================
+                         ACTION BUTTONS
+                    ================================== -->
+
+                    <div class="calculator-actions">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            id="calculateButton"
+                        >
+                            Calculate Area
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="addAreaButton"
+                        >
+                            Add This Area
+                        </button>
+
+                        <button
+                            type="reset"
+                            class="btn btn-secondary"
+                            id="resetButton"
+                        >
+                            Reset
+                        </button>
+
+                    </div>
+
+                </form>
+
+
+                <!-- =====================================
+                     RESULT
+                ====================================== -->
+
+                <div
+                    class="calculator-result"
+                    id="calculatorResult"
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
+
+                    <div class="result-header">
+
+                        <span class="result-label">
+                            YOUR RESULT
+                        </span>
+
+                        <h3>
+                            Calculated Area
+                        </h3>
+
+                    </div>
+
+
+                    <div class="result-primary">
+
+                        <span
+                            class="result-value"
+                            id="squareFeetResult"
+                        >
+                            0
+                        </span>
+
+                        <span
+                            class="result-unit"
+                            id="primaryResultUnit"
+                        >
+                            sq ft
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-secondary">
+
+                        <div class="result-item">
+
+                            <span class="result-item-label">
+                                Square Feet
+                            </span>
+
+                            <strong id="squareFeetValue">
+                                0 sq ft
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span class="result-item-label">
+                                Square Meters
+                            </span>
+
+                            <strong id="squareMetersValue">
+                                0 m²
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span class="result-item-label">
+                                Square Yards
+                            </span>
+
+                            <strong id="squareYardsValue">
+                                0 sq yd
+                            </strong>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <span class="result-item-label">
+                                Square Inches
+                            </span>
+
+                            <strong id="squareInchesValue">
+                                0 sq in
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================
+                     MULTIPLE AREA LIST
+                ====================================== -->
+
+                <section
+                    class="room-list-section"
+                    id="roomListSection"
+                    hidden
+                >
+
+                    <div class="room-list-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                SAVED AREAS
+                            </span>
+
+                            <h3>
+                                Your Areas
+                            </h3>
+
+                        </div>
+
+                        <span
+                            class="room-count"
+                            id="roomCount"
+                        >
+                            0 areas
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="room-list"
+                        id="roomList"
+                    >
+                    </div>
+
+
+                    <div class="room-total">
+
+                        <span>
+                            Grand Total
+                        </span>
+
+                        <strong id="grandTotalValue">
+                            0 sq ft
+                        </strong>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FORMULA SECTION
+    ================================================== -->
+
+    <section class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    Square Footage Formula
+                </h2>
+
+                <p>
+                    The formula depends on the shape of the area
+                    you want to calculate.
+                </p>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <article class="info-card">
+
+                    <div
+                        class="info-card-icon"
+                        aria-hidden="true"
+                    >
+                        01
+                    </div>
+
+                    <h3>
+                        Rectangle
+                    </h3>
+
+                    <p>
+                        Area = Length × Width
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <div
+                        class="info-card-icon"
+                        aria-hidden="true"
+                    >
+                        02
+                    </div>
+
+                    <h3>
+                        Square
+                    </h3>
+
+                    <p>
+                        Area = Side × Side
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <div
+                        class="info-card-icon"
+                        aria-hidden="true"
+                    >
+                        03
+                    </div>
+
+                    <h3>
+                        Triangle & Circle
+                    </h3>
+
+                    <p>
+                        Use the appropriate geometric formula
+                        to calculate the area.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         USEFUL FOR
+    ================================================== -->
+
+    <section class="content-section section-light">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    USEFUL FOR
+                </span>
+
+                <h2>
+                    What Can You Calculate?
+                </h2>
+
+                <p>
+                    Calculate areas for rooms, floors, renovation
+                    projects, flooring plans, and other spaces.
+                </p>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <article class="info-card">
+
+                    <div
+                        class="info-card-icon"
+                        aria-hidden="true"
+                    >
+                        01
+                    </div>
+
+                    <h3>
+                        Room Area
+                    </h3>
+
+                    <p>
+                        Calculate the area of bedrooms, kitchens,
+                        living rooms, offices, and other spaces.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <div
+                        class="info-card-icon"
+                        aria-hidden="true"
+                    >
+                        02
+                    </div>
+
+                    <h3>
+                        Flooring Projects
+                    </h3>
+
+                    <p>
+                        Estimate floor area when planning tiles,
+                        carpet, flooring, or renovation work.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <div
+                        class="info-card-icon"
+                        aria-hidden="true"
+                    >
+                        03
+                    </div>
+
+                    <h3>
+                        Multiple Spaces
+                    </h3>
+
+                    <p>
+                        Add multiple rooms or areas and calculate
+                        their combined square footage.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         GUIDE CTA
+    ================================================== -->
+
+    <section class="cta-section">
+
+        <div class="container">
+
+            <div class="cta-card">
+
+                <div class="cta-content">
+
+                    <span class="section-label">
+                        LEARN MORE
+                    </span>
+
+                    <h2>
+                        Learn How Square Footage Is Calculated
+                    </h2>
+
+                    <p>
+                        Explore our guide for formulas, measurement
+                        tips, examples, and unit conversions.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="guide.html"
+                    class="btn btn-light"
+                >
+                    Read the Guide
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FAQ PREVIEW
+    ================================================== -->
+
+    <section class="content-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    COMMON QUESTIONS
+                </span>
+
+                <h2>
+                    Square Footage Calculator FAQ
+                </h2>
+
+            </div>
+
+
+            <div class="faq-preview">
+
+                <details class="faq-item">
+
+                    <summary>
+                        How do I calculate square footage?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            For a rectangular space, multiply the
+                            length by the width using the same
+                            measurement unit.
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Can I calculate square meters?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Yes. Select meters as the measurement
+                            unit and the calculator will display
+                            the area in square meters along with
+                            other conversions.
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Can I calculate multiple rooms?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Yes. You can add individual areas and
+                            the calculator can keep a list of saved
+                            areas and calculate their combined total.
+                        </p>
+
+                    </div>
+
+                </details>
+
+            </div>
+
+
+            <div class="section-link">
+
+                <a
+                    href="faq.html"
+                    class="text-link"
+                >
+                    View All Frequently Asked Questions →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+                    Square Footage Calculator
+                </a>
+
+                <p>
+                    A simple online tool for calculating area and
+                    converting measurements between common units.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Calculator
+                </h3>
+
+                <a href="index.html">
+                    Square Footage Calculator
+                </a>
+
+                <a href="conversion.html">
+                    Unit Conversion
+                </a>
+
+                <a href="guide.html">
+                    Calculation Guide
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="faq.html">
+                    FAQ
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="disclaimer.html">
+                    Disclaimer
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                ©
+                <span id="currentYear">
+                    2026
+                </span>
+                Square Footage Calculator.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- JavaScript -->
+<script
+    src="script.js"
+    defer
+></script>
+```
+
+</body>
+
+</html>
