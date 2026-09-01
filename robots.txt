@@ -1,5 +1,4 @@
 
 User-agent: *
-Allow: /
 
 Sitemap: https://square-footage-calculator-omega.vercel.app/sitemap.xml
