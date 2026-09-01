@@ -1,0 +1,34 @@
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/</loc>
+    </url>
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/about.html</loc>
+    </url>
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/privacy.html</loc>
+    </url>
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/disclaimer.html</loc>
+    </url>
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/conversion.html</loc>
+    </url>
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/guide.html</loc>
+    </url>
+
+    <url>
+        <loc>https://square-footage-calculator-omega.vercel.app/faq.html</loc>
+    </url>
+
+</urlset>
+```
