@@ -203,16 +203,24 @@
          CALCULATOR
     ================================================== -->
 
-    <section
-        class="calculator-section"
-        id="calculator"
-    >
+  <!-- =================================================
+     CALCULATOR
+================================================== -->
 
-        <div class="container">
+<section
+    class="calculator-section"
+    id="calculator"
+>
 
-            <div class="calculator-card">
+    <div class="container">
 
-                <div class="calculator-header">
+        <div class="calculator-card">
+
+            <!-- CALCULATOR HEADER -->
+
+            <div class="calculator-header">
+
+                <div class="calculator-title-content">
 
                     <span class="section-label">
                         AREA CALCULATOR
@@ -223,25 +231,32 @@
                     </h2>
 
                     <p>
-                        Select a shape, choose your unit, and enter
-                        the measurements below.
+                        Choose a shape, select your unit, and enter
+                        your measurements below.
                     </p>
 
                 </div>
 
+                <div class="calculator-status">
+                    <span class="status-dot"></span>
+                    Ready
+                </div>
 
-                <!-- =====================================
-                     CALCULATOR FORM
-                ====================================== -->
-
-                <form
-                    class="calculator-form"
-                    id="squareFootageForm"
-                    novalidate
-                >
+            </div>
 
 
-                    <!-- Shape -->
+            <!-- CALCULATOR FORM -->
+
+            <form
+                class="calculator-form"
+                id="squareFootageForm"
+                novalidate
+            >
+
+
+                <!-- SHAPE + UNIT -->
+
+                <div class="calculator-top-row">
 
                     <div class="form-group">
 
@@ -279,8 +294,6 @@
                     </div>
 
 
-                    <!-- Unit -->
-
                     <div class="form-group">
 
                         <label
@@ -316,17 +329,40 @@
 
                     </div>
 
+                </div>
 
-                    <!-- =================================
-                         RECTANGLE / TRIANGLE INPUTS
-                    ================================== -->
 
-                    <div
-                        class="measurement-grid"
-                        id="rectangleInputs"
-                    >
+                <!-- RECTANGLE / TRIANGLE -->
 
-                        <!-- Length -->
+                <div
+                    class="measurement-section"
+                    id="rectangleInputs"
+                >
+
+                    <div class="measurement-heading">
+
+                        <span class="measurement-step">
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Measurements
+                            </strong>
+
+                            <small>
+                                Enter the dimensions of your area
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="measurement-grid">
+
+                        <!-- LENGTH -->
 
                         <div class="form-group">
 
@@ -344,7 +380,7 @@
                                     id="lengthInput"
                                     name="length"
                                     class="form-control"
-                                    placeholder="Enter length"
+                                    placeholder="e.g. 20"
                                     min="0"
                                     step="any"
                                     inputmode="decimal"
@@ -360,6 +396,50 @@
 
                             </div>
 
+                            <div class="quick-pick-row">
+
+                                <span>
+                                    Quick pick
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="lengthInput"
+                                    data-value="10"
+                                >
+                                    10
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="lengthInput"
+                                    data-value="20"
+                                >
+                                    20
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="lengthInput"
+                                    data-value="30"
+                                >
+                                    30
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="lengthInput"
+                                    data-value="50"
+                                >
+                                    50
+                                </button>
+
+                            </div>
+
                             <small
                                 class="input-error"
                                 id="lengthError"
@@ -369,7 +449,7 @@
                         </div>
 
 
-                        <!-- Width -->
+                        <!-- WIDTH -->
 
                         <div class="form-group">
 
@@ -387,7 +467,7 @@
                                     id="widthInput"
                                     name="width"
                                     class="form-control"
-                                    placeholder="Enter width"
+                                    placeholder="e.g. 10"
                                     min="0"
                                     step="any"
                                     inputmode="decimal"
@@ -403,6 +483,50 @@
 
                             </div>
 
+                            <div class="quick-pick-row">
+
+                                <span>
+                                    Quick pick
+                                </span>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="widthInput"
+                                    data-value="5"
+                                >
+                                    5
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="widthInput"
+                                    data-value="10"
+                                >
+                                    10
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="widthInput"
+                                    data-value="15"
+                                >
+                                    15
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="quick-value"
+                                    data-target="widthInput"
+                                    data-value="20"
+                                >
+                                    20
+                                </button>
+
+                            </div>
+
                             <small
                                 class="input-error"
                                 id="widthError"
@@ -413,16 +537,39 @@
 
                     </div>
 
+                </div>
 
-                    <!-- =================================
-                         SQUARE INPUT
-                    ================================== -->
 
-                    <div
-                        class="form-group"
-                        id="squareInputs"
-                        hidden
-                    >
+                <!-- SQUARE -->
+
+                <div
+                    class="measurement-section"
+                    id="squareInputs"
+                    hidden
+                >
+
+                    <div class="measurement-heading">
+
+                        <span class="measurement-step">
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Square Measurement
+                            </strong>
+
+                            <small>
+                                Enter the side length
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
 
                         <label
                             for="sideInput"
@@ -438,7 +585,7 @@
                                 id="sideInput"
                                 name="side"
                                 class="form-control"
-                                placeholder="Enter side length"
+                                placeholder="e.g. 15"
                                 min="0"
                                 step="any"
                                 inputmode="decimal"
@@ -462,16 +609,39 @@
 
                     </div>
 
+                </div>
 
-                    <!-- =================================
-                         CIRCLE INPUT
-                    ================================== -->
 
-                    <div
-                        class="form-group"
-                        id="circleInputs"
-                        hidden
-                    >
+                <!-- CIRCLE -->
+
+                <div
+                    class="measurement-section"
+                    id="circleInputs"
+                    hidden
+                >
+
+                    <div class="measurement-heading">
+
+                        <span class="measurement-step">
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Circle Measurement
+                            </strong>
+
+                            <small>
+                                Enter the radius
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
 
                         <label
                             for="radiusInput"
@@ -487,7 +657,7 @@
                                 id="radiusInput"
                                 name="radius"
                                 class="form-control"
-                                placeholder="Enter radius"
+                                placeholder="e.g. 10"
                                 min="0"
                                 step="any"
                                 inputmode="decimal"
@@ -511,72 +681,68 @@
 
                     </div>
 
-
-                    <!-- =================================
-                         AREA NAME
-                    ================================== -->
-
-                    <div class="form-group">
-
-                        <label
-                            for="areaNameInput"
-                            class="form-label"
-                        >
-                            Area Name
-                            <span>(Optional)</span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="areaNameInput"
-                            name="areaName"
-                            class="form-control"
-                            placeholder="e.g. Living Room"
-                            maxlength="60"
-                            autocomplete="off"
-                        >
-
-                    </div>
+                </div>
 
 
-                    <!-- =================================
-                         ACTION BUTTONS
-                    ================================== -->
+                <!-- AREA NAME -->
 
-                    <div class="calculator-actions">
+                <div class="form-group area-name-group">
 
-                        <button
-                            type="submit"
-                            class="btn btn-primary"
-                            id="calculateButton"
-                        >
-                            Calculate Area
-                        </button>
+                    <label
+                        for="areaNameInput"
+                        class="form-label"
+                    >
+                        Area Name
+                        <span>
+                            (Optional)
+                        </span>
+                    </label>
 
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            id="addAreaButton"
-                        >
-                            Add This Area
-                        </button>
+                    <input
+                        type="text"
+                        id="areaNameInput"
+                        name="areaName"
+                        class="form-control"
+                        placeholder="e.g. Living Room"
+                        maxlength="60"
+                        autocomplete="off"
+                    >
 
-                        <button
-                            type="reset"
-                            class="btn btn-secondary"
-                            id="resetButton"
-                        >
-                            Reset
-                        </button>
-
-                    </div>
-
-                </form>
+                </div>
 
 
-                <!-- =====================================
-                     RESULT
-                ====================================== -->
+                <!-- ACTION BUTTONS -->
+
+                <div class="calculator-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="calculateButton"
+                    >
+                        Calculate Area
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="addAreaButton"
+                    >
+                        Add This Area
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                        id="resetButton"
+                    >
+                        Reset
+                    </button>
+
+                </div>
+
+
+                <!-- RESULT -->
 
                 <div
                     class="calculator-result"
@@ -587,16 +753,30 @@
 
                     <div class="result-header">
 
-                        <span class="result-label">
-                            YOUR RESULT
-                        </span>
+                        <div class="result-title-group">
 
-                        <h3>
-                            Calculated Area
-                        </h3>
+                            <span class="result-check">
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <span class="result-label">
+                                    YOUR RESULT
+                                </span>
+
+                                <h3>
+                                    Calculated Area
+                                </h3>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
+
+                    <!-- MAIN RESULT -->
 
                     <div class="result-primary">
 
@@ -616,6 +796,8 @@
 
                     </div>
 
+
+                    <!-- CONVERSIONS -->
 
                     <div class="result-secondary">
 
@@ -674,67 +856,67 @@
 
                 </div>
 
+            </form>
 
-                <!-- =====================================
-                     MULTIPLE AREA LIST
-                ====================================== -->
 
-                <section
-                    class="room-list-section"
-                    id="roomListSection"
-                    hidden
-                >
+            <!-- MULTIPLE AREAS -->
 
-                    <div class="room-list-header">
+            <section
+                class="room-list-section"
+                id="roomListSection"
+                hidden
+            >
 
-                        <div>
+                <div class="room-list-header">
 
-                            <span class="section-label">
-                                SAVED AREAS
-                            </span>
+                    <div>
 
-                            <h3>
-                                Your Areas
-                            </h3>
-
-                        </div>
-
-                        <span
-                            class="room-count"
-                            id="roomCount"
-                        >
-                            0 areas
+                        <span class="section-label">
+                            SAVED AREAS
                         </span>
+
+                        <h3>
+                            Your Areas
+                        </h3>
 
                     </div>
 
-
-                    <div
-                        class="room-list"
-                        id="roomList"
+                    <span
+                        class="room-count"
+                        id="roomCount"
                     >
-                    </div>
+                        0 areas
+                    </span>
+
+                </div>
 
 
-                    <div class="room-total">
+                <div
+                    class="room-list"
+                    id="roomList"
+                >
+                </div>
 
-                        <span>
-                            Grand Total
-                        </span>
 
-                        <strong id="grandTotalValue">
-                            0 sq ft
-                        </strong>
+                <div class="room-total">
 
-                    </div>
+                    <span>
+                        Grand Total
+                    </span>
 
-                </section>
+                    <strong id="grandTotalValue">
+                        0 sq ft
+                    </strong>
 
-            </div>
+                </div>
+
+            </section>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
     <!-- =================================================

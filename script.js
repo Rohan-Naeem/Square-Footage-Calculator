@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     // =====================================================
     // ELEMENTS
     // =====================================================
@@ -85,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // =====================================================
     // UNIT CONVERSION
-    // Everything is converted to square feet first.
     // =====================================================
 
     const unitToFeet = {
@@ -109,9 +109,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // =====================================================
 
     function formatNumber(number) {
-        return Number(number).toLocaleString("en-US", {
-            maximumFractionDigits: 2
-        });
+
+        return Number(number).toLocaleString(
+            "en-US",
+            {
+                maximumFractionDigits: 2
+            }
+        );
     }
 
 
@@ -140,14 +144,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const shape = shapeSelect.value;
 
+
         // Hide everything first
+
         rectangleInputs.hidden = true;
         squareInputs.hidden = true;
         circleInputs.hidden = true;
 
+
         // Clear old errors
+
         clearErrors();
 
+
+        // Rectangle
 
         if (shape === "rectangle") {
 
@@ -158,9 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             sideInput.required = false;
             radiusInput.required = false;
-
         }
 
+
+        // Square
 
         else if (shape === "square") {
 
@@ -171,9 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
             lengthInput.required = false;
             widthInput.required = false;
             radiusInput.required = false;
-
         }
 
+
+        // Triangle
 
         else if (shape === "triangle") {
 
@@ -189,25 +201,37 @@ document.addEventListener("DOMContentLoaded", () => {
                     'label[for="widthInput"]'
                 );
 
+
             if (lengthLabel) {
-                lengthLabel.childNodes[0].textContent = "Base";
+
+                lengthLabel.childNodes[0].textContent =
+                    "Base";
             }
+
 
             if (widthLabel) {
-                widthLabel.childNodes[0].textContent = "Height";
+
+                widthLabel.childNodes[0].textContent =
+                    "Height";
             }
 
-            lengthInput.placeholder = "Enter base";
-            widthInput.placeholder = "Enter height";
+
+            lengthInput.placeholder =
+                "Enter base";
+
+            widthInput.placeholder =
+                "Enter height";
+
 
             lengthInput.required = true;
             widthInput.required = true;
 
             sideInput.required = false;
             radiusInput.required = false;
-
         }
 
+
+        // Circle
 
         else if (shape === "circle") {
 
@@ -218,11 +242,11 @@ document.addEventListener("DOMContentLoaded", () => {
             lengthInput.required = false;
             widthInput.required = false;
             sideInput.required = false;
-
         }
 
 
-        // Restore rectangle labels when needed
+        // Restore rectangle labels
+
         if (shape !== "triangle") {
 
             const lengthLabel =
@@ -235,17 +259,28 @@ document.addEventListener("DOMContentLoaded", () => {
                     'label[for="widthInput"]'
                 );
 
+
             if (lengthLabel) {
-                lengthLabel.childNodes[0].textContent = "Length";
+
+                lengthLabel.childNodes[0].textContent =
+                    "Length";
             }
+
 
             if (widthLabel) {
-                widthLabel.childNodes[0].textContent = "Width";
+
+                widthLabel.childNodes[0].textContent =
+                    "Width";
             }
 
-            lengthInput.placeholder = "Enter length";
-            widthInput.placeholder = "Enter width";
+
+            lengthInput.placeholder =
+                "Enter length";
+
+            widthInput.placeholder =
+                "Enter width";
         }
+
 
         updateUnitLabels();
     }
@@ -264,6 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
             radiusInput
         ];
 
+
         const errors = [
             lengthError,
             widthError,
@@ -273,21 +309,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         inputs.forEach(input => {
-            input.classList.remove("input-invalid");
+
+            input.classList.remove(
+                "input-invalid"
+            );
         });
 
 
         errors.forEach(error => {
+
             error.textContent = "";
         });
     }
 
 
-    function showError(input, errorElement, message) {
+    function showError(
+        input,
+        errorElement,
+        message
+    ) {
 
-        input.classList.add("input-invalid");
+        input.classList.add(
+            "input-invalid"
+        );
 
-        errorElement.textContent = message;
+        errorElement.textContent =
+            message;
     }
 
 
@@ -295,9 +342,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // GET POSITIVE NUMBER
     // =====================================================
 
-    function getPositiveNumber(input, errorElement, label) {
+    function getPositiveNumber(
+        input,
+        errorElement,
+        label
+    ) {
 
-        const value = parseFloat(input.value);
+        const value =
+            parseFloat(input.value);
 
 
         if (input.value.trim() === "") {
@@ -348,125 +400,156 @@ document.addEventListener("DOMContentLoaded", () => {
 
         clearErrors();
 
-        const shape = shapeSelect.value;
-        const unit = measurementUnit.value;
+        const shape =
+            shapeSelect.value;
+
+        const unit =
+            measurementUnit.value;
 
         let area = null;
 
 
-        // -------------------------------------------------
         // RECTANGLE
-        // -------------------------------------------------
 
         if (shape === "rectangle") {
 
-            const length = getPositiveNumber(
-                lengthInput,
-                lengthError,
-                "Length"
-            );
-
-            const width = getPositiveNumber(
-                widthInput,
-                widthError,
-                "Width"
-            );
+            const length =
+                getPositiveNumber(
+                    lengthInput,
+                    lengthError,
+                    "Length"
+                );
 
 
-            if (length === null || width === null) {
+            const width =
+                getPositiveNumber(
+                    widthInput,
+                    widthError,
+                    "Width"
+                );
+
+
+            if (
+                length === null ||
+                width === null
+            ) {
+
                 return null;
             }
 
 
-            area = length * width;
+            area =
+                length * width;
         }
 
 
-        // -------------------------------------------------
         // SQUARE
-        // -------------------------------------------------
 
         else if (shape === "square") {
 
-            const side = getPositiveNumber(
-                sideInput,
-                sideError,
-                "Side length"
-            );
+            const side =
+                getPositiveNumber(
+                    sideInput,
+                    sideError,
+                    "Side length"
+                );
 
 
             if (side === null) {
+
                 return null;
             }
 
 
-            area = side * side;
+            area =
+                side * side;
         }
 
 
-        // -------------------------------------------------
         // TRIANGLE
-        // -------------------------------------------------
 
         else if (shape === "triangle") {
 
-            const base = getPositiveNumber(
-                lengthInput,
-                lengthError,
-                "Base"
-            );
-
-            const height = getPositiveNumber(
-                widthInput,
-                widthError,
-                "Height"
-            );
+            const base =
+                getPositiveNumber(
+                    lengthInput,
+                    lengthError,
+                    "Base"
+                );
 
 
-            if (base === null || height === null) {
+            const height =
+                getPositiveNumber(
+                    widthInput,
+                    widthError,
+                    "Height"
+                );
+
+
+            if (
+                base === null ||
+                height === null
+            ) {
+
                 return null;
             }
 
 
-            area = (base * height) / 2;
+            area =
+                (base * height) / 2;
         }
 
 
-        // -------------------------------------------------
         // CIRCLE
-        // -------------------------------------------------
 
         else if (shape === "circle") {
 
-            const radius = getPositiveNumber(
-                radiusInput,
-                radiusError,
-                "Radius"
-            );
+            const radius =
+                getPositiveNumber(
+                    radiusInput,
+                    radiusError,
+                    "Radius"
+                );
 
 
             if (radius === null) {
+
                 return null;
             }
 
 
-            area = Math.PI * radius * radius;
+            area =
+                Math.PI *
+                radius *
+                radius;
         }
 
 
-        // -------------------------------------------------
+        // =================================================
         // CONVERT TO SQUARE FEET
-        // -------------------------------------------------
+        // =================================================
 
-        const sideToFeet = unitToFeet[unit];
+        const sideToFeet =
+            unitToFeet[unit];
 
-        const squareFeet = area * sideToFeet * sideToFeet;
+
+        const squareFeet =
+            area *
+            sideToFeet *
+            sideToFeet;
 
 
-        // Other conversions
-        const squareMeters = squareFeet * 0.09290304;
-        const squareYards = squareFeet / 9;
-        const squareInches = squareFeet * 144;
+        const squareMeters =
+            squareFeet *
+            0.09290304;
+
+
+        const squareYards =
+            squareFeet / 9;
+
+
+        const squareInches =
+            squareFeet * 144;
 
 
         return {
@@ -492,11 +575,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        currentCalculation = result;
+        currentCalculation =
+            result;
 
 
         squareFeetResult.textContent =
-            formatNumber(result.squareFeet);
+            formatNumber(
+                result.squareFeet
+            );
 
 
         primaryResultUnit.textContent =
@@ -519,7 +605,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `${formatNumber(result.squareInches)} sq in`;
 
 
-        calculatorResult.classList.add("result-visible");
+        calculatorResult.classList.add(
+            "result-visible"
+        );
 
 
         calculatorResult.scrollIntoView({
@@ -533,60 +621,170 @@ document.addEventListener("DOMContentLoaded", () => {
     // FORM SUBMIT
     // =====================================================
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener(
+        "submit",
+        function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const result = calculateArea();
 
-        if (result) {
-            displayResult(result);
+            const result =
+                calculateArea();
+
+
+            if (result) {
+
+                displayResult(
+                    result
+                );
+            }
         }
-    });
+    );
+
+
+    // =====================================================
+    // QUICK PICK BUTTONS
+    // =====================================================
+
+    const quickValueButtons =
+        document.querySelectorAll(
+            ".quick-value"
+        );
+
+
+    quickValueButtons.forEach(
+        function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const targetId =
+                        button.dataset.target;
+
+                    const value =
+                        button.dataset.value;
+
+
+                    const input =
+                        document.getElementById(
+                            targetId
+                        );
+
+
+                    if (!input) {
+                        return;
+                    }
+
+
+                    // Set selected value
+
+                    input.value =
+                        value;
+
+
+                    // Remove active state
+                    // from buttons for same field
+
+                    quickValueButtons.forEach(
+                        function(otherButton) {
+
+                            if (
+                                otherButton.dataset.target ===
+                                targetId
+                            ) {
+
+                                otherButton.classList.remove(
+                                    "active"
+                                );
+                            }
+                        }
+                    );
+
+
+                    // Highlight selected button
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    // Remove error
+
+                    const errorMap = {
+                        lengthInput: lengthError,
+                        widthInput: widthError,
+                        sideInput: sideError,
+                        radiusInput: radiusError
+                    };
+
+
+                    if (
+                        errorMap[targetId]
+                    ) {
+
+                        input.classList.remove(
+                            "input-invalid"
+                        );
+
+                        errorMap[targetId].textContent =
+                            "";
+                    }
+
+
+                    input.focus();
+                }
+            );
+        }
+    );
 
 
     // =====================================================
     // ADD AREA
     // =====================================================
 
-    addAreaButton.addEventListener("click", function() {
+    addAreaButton.addEventListener(
+        "click",
+        function() {
 
-        const result = calculateArea();
+            const result =
+                calculateArea();
 
-        if (!result) {
-            return;
+
+            if (!result) {
+                return;
+            }
+
+
+            const customName =
+                areaNameInput.value.trim();
+
+
+            const shapeName =
+                result.shape.charAt(0).toUpperCase() +
+                result.shape.slice(1);
+
+
+            const areaName =
+                customName ||
+                `${shapeName} ${savedAreas.length + 1}`;
+
+
+            savedAreas.push({
+                name: areaName,
+                shape: result.shape,
+                squareFeet: result.squareFeet
+            });
+
+
+            renderSavedAreas();
+
+
+            areaNameInput.value = "";
+
+            roomListSection.hidden = false;
         }
-
-
-        const customName =
-            areaNameInput.value.trim();
-
-
-        const shapeName =
-            result.shape.charAt(0).toUpperCase() +
-            result.shape.slice(1);
-
-
-        const areaName =
-            customName ||
-            `${shapeName} ${savedAreas.length + 1}`;
-
-
-        savedAreas.push({
-            name: areaName,
-            shape: result.shape,
-            squareFeet: result.squareFeet
-        });
-
-
-        renderSavedAreas();
-
-
-        areaNameInput.value = "";
-
-
-        roomListSection.hidden = false;
-    });
+    );
 
 
     // =====================================================
@@ -601,46 +799,61 @@ document.addEventListener("DOMContentLoaded", () => {
         let total = 0;
 
 
-        savedAreas.forEach((area, index) => {
+        savedAreas.forEach(
+            function(area, index) {
 
-            total += area.squareFeet;
-
-
-            const item =
-                document.createElement("div");
+                total += area.squareFeet;
 
 
-            item.className =
-                "room-list-item";
+                const item =
+                    document.createElement(
+                        "div"
+                    );
 
 
-            item.innerHTML = `
-                <div class="room-item-info">
-                    <strong>${escapeHTML(area.name)}</strong>
-                    <span>${escapeHTML(area.shape)}</span>
-                </div>
-
-                <div class="room-item-value">
-                    ${formatNumber(area.squareFeet)} sq ft
-                </div>
-
-                <button
-                    type="button"
-                    class="room-delete-button"
-                    data-index="${index}"
-                >
-                    Remove
-                </button>
-            `;
+                item.className =
+                    "room-list-item";
 
 
-            roomList.appendChild(item);
-        });
+                item.innerHTML = `
+                    <div class="room-item-info">
+
+                        <strong>
+                            ${escapeHTML(area.name)}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(area.shape)}
+                        </span>
+
+                    </div>
+
+                    <div class="room-item-value">
+                        ${formatNumber(area.squareFeet)} sq ft
+                    </div>
+
+                    <button
+                        type="button"
+                        class="room-delete-button"
+                        data-index="${index}"
+                    >
+                        Remove
+                    </button>
+                `;
+
+
+                roomList.appendChild(
+                    item
+                );
+            }
+        );
 
 
         roomCount.textContent =
             `${savedAreas.length} ${
-                savedAreas.length === 1 ? "area" : "areas"
+                savedAreas.length === 1
+                    ? "area"
+                    : "areas"
             }`;
 
 
@@ -657,28 +870,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // REMOVE SAVED AREA
     // =====================================================
 
-    roomList.addEventListener("click", function(event) {
+    roomList.addEventListener(
+        "click",
+        function(event) {
 
-        const button =
-            event.target.closest(
-                ".room-delete-button"
+            const button =
+                event.target.closest(
+                    ".room-delete-button"
+                );
+
+
+            if (!button) {
+                return;
+            }
+
+
+            const index =
+                Number(
+                    button.dataset.index
+                );
+
+
+            savedAreas.splice(
+                index,
+                1
             );
 
 
-        if (!button) {
-            return;
+            renderSavedAreas();
         }
-
-
-        const index =
-            Number(button.dataset.index);
-
-
-        savedAreas.splice(index, 1);
-
-
-        renderSavedAreas();
-    });
+    );
 
 
     // =====================================================
@@ -700,45 +921,73 @@ document.addEventListener("DOMContentLoaded", () => {
     // RESET
     // =====================================================
 
-    form.addEventListener("reset", function() {
+    form.addEventListener(
+        "reset",
+        function() {
 
-        setTimeout(() => {
+            setTimeout(
+                function() {
 
-            clearErrors();
+                    clearErrors();
 
-            currentCalculation = null;
+                    currentCalculation =
+                        null;
 
-            calculatorResult.classList.remove(
-                "result-visible"
+
+                    calculatorResult.classList.remove(
+                        "result-visible"
+                    );
+
+
+                    squareFeetResult.textContent =
+                        "0";
+
+
+                    primaryResultUnit.textContent =
+                        "sq ft";
+
+
+                    squareFeetValue.textContent =
+                        "0 sq ft";
+
+
+                    squareMetersValue.textContent =
+                        "0 m²";
+
+
+                    squareYardsValue.textContent =
+                        "0 sq yd";
+
+
+                    squareInchesValue.textContent =
+                        "0 sq in";
+
+
+                    savedAreas = [];
+
+
+                    renderSavedAreas();
+
+
+                    // Remove Quick Pick selection
+
+                    quickValueButtons.forEach(
+                        function(button) {
+
+                            button.classList.remove(
+                                "active"
+                            );
+                        }
+                    );
+
+
+                    updateShapeInputs();
+
+                },
+                0
             );
-
-
-            squareFeetResult.textContent = "0";
-
-            primaryResultUnit.textContent =
-                "sq ft";
-
-            squareFeetValue.textContent =
-                "0 sq ft";
-
-            squareMetersValue.textContent =
-                "0 m²";
-
-            squareYardsValue.textContent =
-                "0 sq yd";
-
-            squareInchesValue.textContent =
-                "0 sq in";
-
-
-            savedAreas = [];
-
-            renderSavedAreas();
-
-            updateShapeInputs();
-
-        }, 0);
-    });
+        }
+    );
 
 
     // =====================================================
@@ -747,7 +996,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     shapeSelect.addEventListener(
         "change",
-        updateShapeInputs
+        function() {
+
+            // Remove Quick Pick states
+            quickValueButtons.forEach(
+                function(button) {
+
+                    button.classList.remove(
+                        "active"
+                    );
+                }
+            );
+
+
+            updateShapeInputs();
+        }
     );
 
 
@@ -757,7 +1020,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     measurementUnit.addEventListener(
         "change",
-        updateUnitLabels
+        function() {
+
+            updateUnitLabels();
+        }
     );
 
 
@@ -770,28 +1036,65 @@ document.addEventListener("DOMContentLoaded", () => {
         widthInput,
         sideInput,
         radiusInput
-    ].forEach(input => {
+    ].forEach(
+        function(input) {
 
-        input.addEventListener("input", function() {
+            input.addEventListener(
+                "input",
+                function() {
 
-            input.classList.remove(
-                "input-invalid"
+                    input.classList.remove(
+                        "input-invalid"
+                    );
+
+
+                    const errorMap = {
+
+                        lengthInput:
+                            lengthError,
+
+                        widthInput:
+                            widthError,
+
+                        sideInput:
+                            sideError,
+
+                        radiusInput:
+                            radiusError
+                    };
+
+
+                    if (
+                        errorMap[input.id]
+                    ) {
+
+                        errorMap[input.id].textContent =
+                            "";
+                    }
+
+
+                    // Remove quick-pick
+                    // active state when
+                    // user manually changes value
+
+                    quickValueButtons.forEach(
+                        function(button) {
+
+                            if (
+                                button.dataset.target ===
+                                input.id
+                            ) {
+
+                                button.classList.remove(
+                                    "active"
+                                );
+                            }
+                        }
+                    );
+                }
             );
-
-
-            const errorMap = {
-                lengthInput: lengthError,
-                widthInput: widthError,
-                sideInput: sideError,
-                radiusInput: radiusError
-            };
-
-
-            if (errorMap[input.id]) {
-                errorMap[input.id].textContent = "";
-            }
-        });
-    });
+        }
+    );
 
 
     // =====================================================
@@ -810,7 +1113,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             mobileMenuToggle.setAttribute(
                 "aria-expanded",
-                isOpen ? "true" : "false"
+                isOpen
+                    ? "true"
+                    : "false"
             );
 
 
@@ -824,33 +1129,36 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-    // Close mobile menu after clicking a link
+    // Close mobile menu after clicking link
+
     mainNavigation
         .querySelectorAll("a")
-        .forEach(link => {
+        .forEach(
+            function(link) {
 
-            link.addEventListener(
-                "click",
-                () => {
+                link.addEventListener(
+                    "click",
+                    function() {
 
-                    mainNavigation.classList.remove(
-                        "navigation-open"
-                    );
-
-
-                    mobileMenuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
+                        mainNavigation.classList.remove(
+                            "navigation-open"
+                        );
 
 
-                    mobileMenuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-                }
-            );
-        });
+                        mobileMenuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+
+                        mobileMenuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation menu"
+                        );
+                    }
+                );
+            }
+        );
 
 
     // =====================================================
@@ -858,6 +1166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // =====================================================
 
     if (currentYear) {
+
         currentYear.textContent =
             new Date().getFullYear();
     }
@@ -868,6 +1177,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // =====================================================
 
     updateShapeInputs();
+
     updateUnitLabels();
+
     renderSavedAreas();
+
 });
