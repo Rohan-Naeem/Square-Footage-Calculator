@@ -229,6 +229,144 @@ a {
 }
 
 
+/* ---------- Native Banner Ad ---------- */
+
+.ad-banner-top {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto 28px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ad-banner-top > div {
+    width: 100%;
+}
+
+/* ---------- Sticky Footer Banner Ad (320x50) ---------- */
+
+body.has-sticky-ad {
+    padding-bottom: 70px;
+}
+
+.sticky-footer-ad {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 18px rgba(23, 32, 51, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+}
+
+.sticky-ad-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
+.sticky-ad-content {
+    width: 320px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sticky-ad-close {
+    position: absolute;
+    right: -36px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.sticky-ad-close:hover {
+    background: var(--light-bg);
+    color: var(--text);
+    border-color: var(--text-light);
+}
+
+@media (max-width: 480px) {
+    .sticky-ad-close {
+        right: -6px;
+        top: -12px;
+        transform: none;
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+    }
+}
+
+/* ---------- Leaderboard Banner Ad (728x90) ---------- */
+
+.ad-banner-leaderboard {
+    width: 100%;
+    max-width: 1080px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ad-banner-leaderboard iframe {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .ad-banner-leaderboard {
+        margin-top: 25px;
+    }
+}
+
+/* ---------- Rectangle Banner Ad (300x250) ---------- */
+
+.ad-section-bottom {
+    padding: 0 0 70px;
+    background: #ffffff;
+}
+
+.ad-banner-rectangle {
+    width: 300px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
 /* ---------- Main Calculator Card ---------- */
 
 .calculator-card {

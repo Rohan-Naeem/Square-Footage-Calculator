@@ -73,7 +73,7 @@ content="https://square-footage-calculator-omega.vercel.app/.com/"
 
 </head>
 
-<body>
+<body class="has-sticky-ad">
 
 <!-- =====================================================
      HEADER
@@ -221,6 +221,12 @@ class="logo-image"
 >
 
 <div class="container">
+
+    <!-- Native Banner Ad -->
+    <div class="ad-banner-top">
+        <script async="async" data-cfasync="false" src="https://bauval.org/21/c0aba69ca757ff6837fc0dcfc8e18a9c"></script>
+        <div id="container-c0aba69ca757ff6837fc0dcfc8e18a9c"></div>
+    </div>
 
     <div class="calculator-card">
 
@@ -918,6 +924,20 @@ class="logo-image"
 
     </div>
 
+    <!-- Leaderboard Banner Ad (728x90) -->
+    <div class="ad-banner-leaderboard">
+        <script>
+          atOptions = {
+            'key' : 'b4df1d600b76662c23a063ce67fe1746',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://bauval.org/22/b4df1d600b76662c23a063ce67fe1746"></script>
+    </div>
+
 </div>
 
 </section>
@@ -1264,6 +1284,24 @@ class="logo-image"
 
 </section>
 
+<!-- Rectangle Banner Ad (300x250) -->
+<section class="ad-section-bottom">
+    <div class="container">
+        <div class="ad-banner-rectangle">
+            <script>
+              atOptions = {
+                'key' : '79b01869fc7abf4adf8048d480a555be',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://bauval.org/22/79b01869fc7abf4adf8048d480a555be"></script>
+        </div>
+    </div>
+</section>
+
 </main>
 
 <!-- =====================================================
@@ -1360,6 +1398,38 @@ class="logo-image"
 
 
 </footer>
+
+<!-- Sticky Footer Banner Ad (320x50) -->
+<div class="sticky-footer-ad" id="stickyFooterAd">
+    <div class="sticky-ad-wrapper">
+        <button type="button" class="sticky-ad-close" id="stickyAdClose" aria-label="Close advertisement">&times;</button>
+        <div class="sticky-ad-content">
+            <script>
+              atOptions = {
+                'key' : 'e26202b190f9c40be271a3832b6e6165',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+              };
+            </script>
+            <script src="https://bauval.org/22/e26202b190f9c40be271a3832b6e6165"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var closeBtn = document.getElementById("stickyAdClose");
+        var adBox = document.getElementById("stickyFooterAd");
+        if (closeBtn && adBox) {
+            closeBtn.addEventListener("click", function() {
+                adBox.style.display = "none";
+                document.body.classList.remove("has-sticky-ad");
+            });
+        }
+    });
+</script>
 
 <!-- JavaScript -->
 
